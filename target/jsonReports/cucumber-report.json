@@ -1,0 +1,450 @@
+[
+  {
+    "line": 1,
+    "elements": [
+      {
+        "line": 3,
+        "name": "Generate the token",
+        "description": "",
+        "type": "background",
+        "keyword": "Background",
+        "steps": [
+          {
+            "result": {
+              "status": "undefined"
+            },
+            "line": 4,
+            "name": "I have the endpoint as \"MTU_AUTH_TOKEN\"",
+            "match": {},
+            "keyword": "Given "
+          },
+          {
+            "result": {
+              "duration": 1000000,
+              "status": "skipped"
+            },
+            "line": 5,
+            "name": "I send the \"Post\" request with basic auth to \"generate auth\"",
+            "match": {},
+            "rows": [
+              {
+                "cells": [
+                  "description",
+                  "key",
+                  "value"
+                ]
+              },
+              {
+                "cells": [
+                  "username",
+                  "mtu_username",
+                  ""
+                ]
+              },
+              {
+                "cells": [
+                  "password",
+                  "mtu_password",
+                  ""
+                ]
+              },
+              {
+                "cells": [
+                  "formParam",
+                  "grant_type",
+                  "client_credentials"
+                ]
+              }
+            ],
+            "keyword": "When "
+          },
+          {
+            "result": {
+              "status": "skipped"
+            },
+            "line": 10,
+            "name": "I should see the response status code as \"200\"",
+            "match": {},
+            "keyword": "Then "
+          },
+          {
+            "result": {
+              "status": "skipped"
+            },
+            "line": 11,
+            "name": "I should see the following information in response",
+            "match": {},
+            "rows": [
+              {
+                "cells": [
+                  "Description",
+                  "JsonPath"
+                ]
+              },
+              {
+                "cells": [
+                  "Token",
+                  "JSON_PATH_TOKEN"
+                ]
+              }
+            ],
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "status": "skipped"
+            },
+            "line": 14,
+            "name": "I set the \"Bearer Token\"",
+            "match": {},
+            "keyword": "And "
+          }
+        ]
+      },
+      {
+        "start_timestamp": "2021-09-13T13:34:33.504Z",
+        "line": 30,
+        "name": "Verify if Place is being successfully added using AddPlaceAPI",
+        "description": "",
+        "id": "validating-place-api-s;verify-if-place-is-being-successfully-added-using-addplaceapi;;2",
+        "type": "scenario",
+        "keyword": "Scenario Outline",
+        "steps": [
+          {
+            "result": {
+              "duration": 1000000,
+              "status": "skipped"
+            },
+            "line": 20,
+            "name": "Add Place Payload with \"AAhouse\" \"English\" \"World Cross Center\"",
+            "match": {
+              "arguments": [
+                {
+                  "val": "\"AAhouse\"",
+                  "offset": 23
+                },
+                {
+                  "val": "\"English\"",
+                  "offset": 33
+                },
+                {
+                  "val": "\"World Cross Center\"",
+                  "offset": 43
+                }
+              ],
+              "location": "stepDefinations.StepDefination.add_place_payload_with(java.lang.String,java.lang.String,java.lang.String)"
+            },
+            "keyword": "Given "
+          },
+          {
+            "result": {
+              "status": "skipped"
+            },
+            "line": 21,
+            "name": "user calls \"AddPlaceAPI\" with \"POST\" https request",
+            "match": {
+              "arguments": [
+                {
+                  "val": "\"AddPlaceAPI\"",
+                  "offset": 11
+                },
+                {
+                  "val": "\"POST\"",
+                  "offset": 30
+                }
+              ],
+              "location": "stepDefinations.StepDefination.user_calls_with_https_request(java.lang.String,java.lang.String)"
+            },
+            "keyword": "When "
+          },
+          {
+            "result": {
+              "status": "skipped"
+            },
+            "line": 22,
+            "name": "the API call is success with status code is 200",
+            "match": {
+              "arguments": [
+                {
+                  "val": "200",
+                  "offset": 44
+                }
+              ],
+              "location": "stepDefinations.StepDefination.the_api_call_is_success_with_status_code_is(java.lang.Integer)"
+            },
+            "keyword": "Then "
+          },
+          {
+            "result": {
+              "status": "skipped"
+            },
+            "line": 23,
+            "name": "\"status\" in response body is \"OK\"",
+            "match": {
+              "arguments": [
+                {
+                  "val": "\"status\"",
+                  "offset": 0
+                },
+                {
+                  "val": "\"OK\"",
+                  "offset": 29
+                }
+              ],
+              "location": "stepDefinations.StepDefination.in_response_body_is(java.lang.String,java.lang.String)"
+            },
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "status": "skipped"
+            },
+            "line": 24,
+            "name": "\"scope\" in response body is \"APP\"",
+            "match": {
+              "arguments": [
+                {
+                  "val": "\"scope\"",
+                  "offset": 0
+                },
+                {
+                  "val": "\"APP\"",
+                  "offset": 28
+                }
+              ],
+              "location": "stepDefinations.StepDefination.in_response_body_is(java.lang.String,java.lang.String)"
+            },
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "status": "skipped"
+            },
+            "line": 25,
+            "name": "verify that place_Id created maps to \"AAhouse\" using \"GetPlaceAPI\"",
+            "match": {
+              "arguments": [
+                {
+                  "val": "\"AAhouse\"",
+                  "offset": 37
+                },
+                {
+                  "val": "\"GetPlaceAPI\"",
+                  "offset": 53
+                }
+              ],
+              "location": "stepDefinations.StepDefination.verify_that_place_id_created_maps_to_using(java.lang.String,java.lang.String)"
+            },
+            "keyword": "And "
+          }
+        ],
+        "tags": [
+          {
+            "name": "@AddPlace"
+          }
+        ]
+      },
+      {
+        "line": 3,
+        "name": "Generate the token",
+        "description": "",
+        "type": "background",
+        "keyword": "Background",
+        "steps": [
+          {
+            "result": {
+              "status": "undefined"
+            },
+            "line": 4,
+            "name": "I have the endpoint as \"MTU_AUTH_TOKEN\"",
+            "match": {},
+            "keyword": "Given "
+          },
+          {
+            "result": {
+              "status": "skipped"
+            },
+            "line": 5,
+            "name": "I send the \"Post\" request with basic auth to \"generate auth\"",
+            "match": {},
+            "rows": [
+              {
+                "cells": [
+                  "description",
+                  "key",
+                  "value"
+                ]
+              },
+              {
+                "cells": [
+                  "username",
+                  "mtu_username",
+                  ""
+                ]
+              },
+              {
+                "cells": [
+                  "password",
+                  "mtu_password",
+                  ""
+                ]
+              },
+              {
+                "cells": [
+                  "formParam",
+                  "grant_type",
+                  "client_credentials"
+                ]
+              }
+            ],
+            "keyword": "When "
+          },
+          {
+            "result": {
+              "status": "skipped"
+            },
+            "line": 10,
+            "name": "I should see the response status code as \"200\"",
+            "match": {},
+            "keyword": "Then "
+          },
+          {
+            "result": {
+              "status": "skipped"
+            },
+            "line": 11,
+            "name": "I should see the following information in response",
+            "match": {},
+            "rows": [
+              {
+                "cells": [
+                  "Description",
+                  "JsonPath"
+                ]
+              },
+              {
+                "cells": [
+                  "Token",
+                  "JSON_PATH_TOKEN"
+                ]
+              }
+            ],
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "status": "skipped"
+            },
+            "line": 14,
+            "name": "I set the \"Bearer Token\"",
+            "match": {},
+            "keyword": "And "
+          }
+        ]
+      },
+      {
+        "start_timestamp": "2021-09-13T13:34:33.637Z",
+        "before": [
+          {
+            "result": {
+              "duration": 10821000000,
+              "status": "passed"
+            },
+            "match": {
+              "location": "stepDefinations.Hooks.beforeScenario()"
+            }
+          }
+        ],
+        "line": 34,
+        "name": "Verify if Delete Place functionality is working",
+        "description": "",
+        "id": "validating-place-api-s;verify-if-delete-place-functionality-is-working",
+        "type": "scenario",
+        "keyword": "Scenario",
+        "steps": [
+          {
+            "result": {
+              "status": "skipped"
+            },
+            "line": 35,
+            "name": "Delete Place payload",
+            "match": {
+              "location": "stepDefinations.StepDefination.delete_place_payload()"
+            },
+            "keyword": "Given "
+          },
+          {
+            "result": {
+              "status": "skipped"
+            },
+            "line": 36,
+            "name": "user calls \"DeletePlaceAPI\" with \"POST\" https request",
+            "match": {
+              "arguments": [
+                {
+                  "val": "\"DeletePlaceAPI\"",
+                  "offset": 11
+                },
+                {
+                  "val": "\"POST\"",
+                  "offset": 33
+                }
+              ],
+              "location": "stepDefinations.StepDefination.user_calls_with_https_request(java.lang.String,java.lang.String)"
+            },
+            "keyword": "When "
+          },
+          {
+            "result": {
+              "status": "skipped"
+            },
+            "line": 37,
+            "name": "the API call is success with status code is 200",
+            "match": {
+              "arguments": [
+                {
+                  "val": "200",
+                  "offset": 44
+                }
+              ],
+              "location": "stepDefinations.StepDefination.the_api_call_is_success_with_status_code_is(java.lang.Integer)"
+            },
+            "keyword": "Then "
+          },
+          {
+            "result": {
+              "status": "skipped"
+            },
+            "line": 38,
+            "name": "\"status\" in response body is \"OK\"",
+            "match": {
+              "arguments": [
+                {
+                  "val": "\"status\"",
+                  "offset": 0
+                },
+                {
+                  "val": "\"OK\"",
+                  "offset": 29
+                }
+              ],
+              "location": "stepDefinations.StepDefination.in_response_body_is(java.lang.String,java.lang.String)"
+            },
+            "keyword": "And "
+          }
+        ],
+        "tags": [
+          {
+            "name": "@DeletePlace"
+          }
+        ]
+      }
+    ],
+    "name": "Validating Place API\u0027s",
+    "description": "",
+    "id": "validating-place-api-s",
+    "keyword": "Feature",
+    "uri": "file:src/test/java/features/placeValidations.feature",
+    "tags": []
+  }
+]
